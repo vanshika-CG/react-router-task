@@ -7,7 +7,6 @@ import HarryPotter from "./components/HarryPotter";
 import IndianBanks from "./components/IndianBanks";
 import CharacterDetails from "./components/CharacterDetails";
 
-
 function App() {
   return (
     <div>
@@ -24,6 +23,7 @@ function App() {
         <Route path="/harrypotter" element={<HarryPotter />} />
         <Route path="/indianbanks" element={<IndianBanks />} /> 
         <Route path="/character/:name" element={<CharacterDetails />} />
+    
       </Routes>
     </div>
   );
