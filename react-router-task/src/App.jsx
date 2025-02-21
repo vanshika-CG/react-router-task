@@ -23,7 +23,6 @@ function App() {
         <Route path="/harrypotter" element={<HarryPotter />} />
         <Route path="/indianbanks" element={<IndianBanks />} /> 
         <Route path="/character/:name" element={<CharacterDetails />} />
-    
       </Routes>
     </div>
   );
