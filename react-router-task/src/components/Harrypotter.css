@@ -1,121 +1,348 @@
-/* Harrypotter.css */
+/* Harrypotter.css - Improved Version */
 
+/* Custom Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+/* Base Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    margin: 0;
-    padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  background: #f1ebdc url('https://www.transparenttextures.com/patterns/parchment.png');
+  color: #333;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
+.hp-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+/* Header Styles */
 h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #444;
-    margin-top: 20px;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  font-size: 2.8rem;
+  color: #740001;
+  margin: 30px 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+h2:after {
+  content: "⚡";
+  position: absolute;
+  font-size: 1.5rem;
+  top: -5px;
+  margin-left: 10px;
+}
+
+/* Controls Section */
+.controls-container {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  border: 1px solid #d3b683;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
 }
 
 label {
-    font-weight: bold;
-    margin-right: 10px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 1rem;
 }
 
-select,
-input[type="text"],
-button {
-    margin: 10px;
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+select, input[type="text"] {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #d3b683;
+  background-color: #fffbf5;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-button {
-    background-color: #4caf50;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #45a049;
+select:focus, input[type="text"]:focus {
+  outline: none;
+  border-color: #740001;
+  box-shadow: 0 0 0 2px rgba(116, 0, 1, 0.2);
 }
 
 input[type="text"] {
-    width: 250px;
+  width: 100%;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+button {
+  background: linear-gradient(to bottom, #740001, #5c0000);
+  color: white;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  margin-top: 24px;
+  align-self: center;
+}
+
+button:hover {
+  background: linear-gradient(to bottom, #8a0001, #740001);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Results Section */
+.results-container {
+  margin-top: 30px;
+}
+
+h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  color: #1a472a;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+}
+
+h3:before, h3:after {
+  content: "~";
+  color: #d3b683;
+  padding: 0 10px;
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin: 0;
 }
 
 li {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 15px;
-    width: 300px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #d3b683;
+}
+
+/* Card top bar colors based on category */
+li:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+}
+
+/* House-specific styling */
+li.gryffindor:before { background-color: #740001; }
+li.slytherin:before { background-color: #1a472a; }
+li.ravenclaw:before { background-color: #0e1a40; }
+li.hufflepuff:before { background-color: #ecb939; }
+
+/* Category-specific styling */
+li.book:before { background-color: #740001; }
+li.character:before { background-color: #1a472a; }
+li.spell:before { background-color: #0e1a40; }
+li.house:before { 
+  background: linear-gradient(90deg, 
+    #740001 0%, #740001 25%, 
+    #1a472a 25%, #1a472a 50%, 
+    #0e1a40 50%, #0e1a40 75%, 
+    #ecb939 75%, #ecb939 100%);
 }
 
 li:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
 h4 {
-    font-size: 1.5rem;
-    color: #333;
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
 }
 
 img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-top: 10px;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 3px solid #fff;
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
 }
 
 p {
-    margin: 5px 0;
-    color: #666;
+  margin: 10px 0;
+  color: #555;
+  line-height: 1.5;
 }
 
+p strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* States */
 .error {
-    color: red;
-    text-align: center;
-    margin-top: 20px;
+  background-color: rgba(116, 0, 1, 0.1);
+  color: #740001;
+  text-align: center;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 600px;
+  font-weight: 600;
 }
 
 .loading {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #333;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333;
+  padding: 30px;
+  position: relative;
+}
+
+.loading:after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 20px auto 0;
+  border-radius: 50%;
+  border: 4px solid #d3b683;
+  border-color: #d3b683 transparent #d3b683 transparent;
+  animation: loading-spinner 1.2s linear infinite;
+}
+
+@keyframes loading-spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Mobile Responsive Design */
 @media (max-width: 768px) {
-    ul {
-        flex-direction: column;
-        align-items: center;
-    }
+  .hp-container {
+    padding: 15px;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+  }
+  
+  .controls-container {
+    padding: 15px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .control-group {
+    width: 100%;
+  }
+  
+  ul {
+    grid-template-columns: 1fr;
+  }
+  
+  li {
+    margin-bottom: 20px;
+  }
+  
+  img {
+    height: 200px;
+  }
+}
 
-    li {
-        width: 90%;
-    }
+/* Details Page Specific Styles */
+.details-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  border: 1px solid #d3b683;
+}
 
-    input[type="text"] {
-        width: 90%;
-    }
+.details-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, 
+    #740001 0%, #740001 25%, 
+    #1a472a 25%, #1a472a 50%, 
+    #0e1a40 50%, #0e1a40 75%, 
+    #ecb939 75%, #ecb939 100%);
+  border-radius: 12px 12px 0 0;
+}
+
+.details-img {
+  width: 280px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 auto 25px;
+  display: block;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  border: 5px solid white;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 25px;
+  background-color: #740001;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back-link:hover {
+  background-color: #8a0001;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
