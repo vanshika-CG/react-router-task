@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
-import "./HarryPotter.css";
+import "./Character.css";
 
 function CharacterDetails() {
   const location = useLocation();
